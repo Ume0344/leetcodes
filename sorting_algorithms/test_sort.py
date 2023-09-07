@@ -15,5 +15,17 @@ class TestSum(unittest.TestCase):
         assert arr_sort == [1, 2, 3, 4, 5, 6]
         assert arr1_sort == [27, 43, 56, 66, 102, 222]
 
+    def test_quick_sort(self):
+        s = Sort()
+        arr = [3,2,1,6,4,5]
+        arr1 = [66,43,27,56,222,102]
+
+        arr_sort = s.quick_sort(arr)
+        arr1_sort = s.quick_sort(arr1)
+
+        assert arr_sort == [1, 2, 3, 4, 5, 6]
+        assert arr1_sort == [27, 43, 56, 66, 102, 222]
+
+
 if __name__ == '__main__':
     unittest.main()
