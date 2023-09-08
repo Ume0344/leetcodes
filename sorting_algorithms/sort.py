@@ -56,3 +56,23 @@ class Sort:
         right = self.quick_sort(right)
 
         return left + middle + right
+    
+    def insertion_sort(self, array: list) -> list:
+        """
+        Sort the array through insertion sort algorithm.
+        param array: List of numbers to be sorted.
+        return array: Sorted list of numbers.
+        """
+        l = len(array)
+
+        if l <= 1:
+            return array
+
+        for i in range(1, l):
+            value = array[i]
+            
+            while array[i] < array[i-1] and i > 0:
+                array[i], array[i-1] = array[i-1], array[i]
+                i = i - 1
+
+        return array
