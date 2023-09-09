@@ -76,3 +76,22 @@ class Sort:
                 i = i - 1
 
         return array
+
+    def selection_sort(self, array: list) -> list:
+        """
+        Sort the array through selection sort algorithm.
+        param array: List of numbers to be sorted.
+        return array: Sorted list of numbers.
+        """
+        l = len(array)
+
+        if l <= 1:
+            return array
+
+        for i in range(l):
+            minimum_index = i
+            for j in range(i+1, l):
+                if array[j] < array[minimum_index]:
+                    array[j], array[minimum_index] = array[minimum_index], array[j]
+
+        return array
