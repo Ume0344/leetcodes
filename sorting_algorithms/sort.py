@@ -69,8 +69,6 @@ class Sort:
             return array
 
         for i in range(1, l):
-            value = array[i]
-            
             while array[i] < array[i-1] and i > 0:
                 array[i], array[i-1] = array[i-1], array[i]
                 i = i - 1
