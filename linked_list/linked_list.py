@@ -56,6 +56,27 @@ def insert_after_specific_node(data, node, specific_position) -> None:
     node.next_node = new_node
 
 
+def reverse_linked_list(head_ref: Node) -> Node:
+    """
+    Reverse the linked list
+
+    param linked_list: linked list to be reversed
+    return : Reversed linked list.
+    """
+    previous = None
+    current = head_ref
+
+    while current is not None:
+        next = current.next_node
+        current.next_node = previous
+        previous = current
+        current = next
+
+    head_ref = previous
+
+    return head_ref
+
+
 def print_list(node: Node):
     """
     Print linked list.

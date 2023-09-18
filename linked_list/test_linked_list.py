@@ -35,6 +35,20 @@ class TestStringManipulation(unittest.TestCase):
 
         assert head.data == 54
 
+    def test_reverse_linked_list(self):
+        head = None
+        head = linked_list.insert_at_start(5, head)
+        head = linked_list.insert_at_start(6, head)
+        head = linked_list.insert_at_start(78, head)
+        head = linked_list.insert_at_start(54, head)
+
+        linked_list.print_list(head)
+        head_rev = linked_list.reverse_linked_list(head)
+        linked_list.print_list(head_rev)
+
+
+        assert head_rev.data == 5
+
 
 if __name__ == '__main__':
     unittest.main()
