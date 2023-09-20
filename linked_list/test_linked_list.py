@@ -42,12 +42,31 @@ class TestStringManipulation(unittest.TestCase):
         head = linked_list.insert_at_start(78, head)
         head = linked_list.insert_at_start(54, head)
 
-        linked_list.print_list(head)
         head_rev = linked_list.reverse_linked_list(head)
-        linked_list.print_list(head_rev)
-
 
         assert head_rev.data == 5
+        
+    def test_delete_starting_node(self):
+        head = None
+        head = linked_list.insert_at_start(5, head)
+        head = linked_list.insert_at_start(6, head)
+        head = linked_list.insert_at_start(78, head)
+        head = linked_list.insert_at_start(54, head)
+
+        head = linked_list.delete_node(head, 54)
+
+        assert head.data == 78
+
+    def test_delete_middle_node(self):
+        head = None
+        head = linked_list.insert_at_start(5, head)
+        head = linked_list.insert_at_start(6, head)
+        head = linked_list.insert_at_start(78, head)
+        head = linked_list.insert_at_start(54, head)
+
+        linked_list.print_list(head)
+        head = linked_list.delete_node(head, 6)
+        linked_list.print_list(head)
 
 
 if __name__ == '__main__':

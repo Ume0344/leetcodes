@@ -77,6 +77,27 @@ def reverse_linked_list(head_ref: Node) -> Node:
     return head_ref
 
 
+def delete_node(node: Node, data) -> Node:
+    """
+    Delete a node from linked list.
+
+    param node: Head referenced node.
+    param data: Data containing node to be delete
+    return head_ref: Head reference of Linked list
+    """
+    head_ref = node
+
+    if data == head_ref.data:
+        head_ref = head_ref.next_node
+    else:
+        while node.data is not data:
+            prev = node
+            node = node.next_node
+        prev.next_node = node.next_node
+
+    return head_ref
+
+
 def print_list(node: Node):
     """
     Print linked list.
@@ -86,3 +107,4 @@ def print_list(node: Node):
     while node is not None:
         print(node.data)
         node = node.next_node
+    print("****")
