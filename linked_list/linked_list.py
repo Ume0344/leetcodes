@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Node:
     def __init__(self) -> None:
         self.data = None
@@ -96,6 +99,37 @@ def delete_node(node: Node, data) -> Node:
         prev.next_node = node.next_node
 
     return head_ref
+
+
+def merge_two_linked_list(linkedlist1: Node, linkedlist2: Node) -> Node:
+    """
+    Merges two linkedlists
+    Idea is to create a temp node and append it with nodes from linkedlist1 and linkedlist2.
+    if linkedlist1.data is smaller, temp.next_node = linkedlist1, otherwise temp.next_node = linkedlist2.
+
+    param linkedlist1: First sorted linkedlist to be merged.
+    param linkedlist2: Second sorted linkedlist to be merged.
+    returns dummy.next_node: Merged linkedlist
+    """
+    temp = Node()
+    dummy = temp
+
+    while linkedlist1 and linkedlist2:
+        if linkedlist1.data <= linkedlist2.data:
+            temp.next_node = linkedlist1
+            temp = temp.next_node
+            linkedlist1 = linkedlist1.next_node
+        else:
+            temp.next_node = linkedlist2
+            temp = temp.next_node
+            linkedlist2 = linkedlist2.next_node
+
+        if linkedlist1 is not None:
+            temp.next_node = linkedlist1
+        if linkedlist2 is not None:
+            temp.next_node = linkedlist2
+
+    return dummy.next_node
 
 
 def print_list(node: Node):

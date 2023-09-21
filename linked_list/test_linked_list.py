@@ -64,10 +64,32 @@ class TestStringManipulation(unittest.TestCase):
         head = linked_list.insert_at_start(78, head)
         head = linked_list.insert_at_start(54, head)
 
-        linked_list.print_list(head)
         head = linked_list.delete_node(head, 6)
-        linked_list.print_list(head)
 
+    def test_merge_two_linked_list(self):
+        head = None
+        head1 = None
+
+        head = linked_list.insert_at_start(45, head)
+        head = linked_list.insert_at_start(34, head)
+        head = linked_list.insert_at_start(23, head)
+        head = linked_list.insert_at_start(10, head)
+
+        head1 = linked_list.insert_at_start(35, head1)
+        head1 = linked_list.insert_at_start(27, head1)
+        head1 = linked_list.insert_at_start(25, head1)
+        head1 = linked_list.insert_at_start(12, head1)
+
+        linked_list.print_list(head)
+        linked_list.print_list(head1)
+
+        head_merged = linked_list.merge_two_linked_list(head, head1)
+        print("Merged list is")
+        linked_list.print_list(head_merged)
+        head_merged_next = head_merged.next_node
+
+        assert head_merged.data == 10
+        assert head_merged_next.data == 12
 
 if __name__ == '__main__':
     unittest.main()
