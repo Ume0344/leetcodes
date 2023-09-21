@@ -103,7 +103,7 @@ def delete_node(node: Node, data) -> Node:
 
 def merge_two_linked_list(linkedlist1: Node, linkedlist2: Node) -> Node:
     """
-    Merges two linkedlists
+    Merges two sorted linkedlists
     Idea is to create a temp node and append it with nodes from linkedlist1 and linkedlist2.
     if linkedlist1.data is smaller, temp.next_node = linkedlist1, otherwise temp.next_node = linkedlist2.
 

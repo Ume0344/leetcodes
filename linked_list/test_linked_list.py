@@ -2,7 +2,7 @@ import unittest
 import linked_list
 
 
-class TestStringManipulation(unittest.TestCase):
+class TestLinkedList(unittest.TestCase):
     def test_insert_at_start(self):
         head = None
         head = linked_list.insert_at_start(5, head)
