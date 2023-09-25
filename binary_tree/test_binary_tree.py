@@ -22,6 +22,20 @@ class TestBinaryTree(unittest.TestCase):
 
         assert values == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
+    def test_tree_includes(self):
+        root = binary_tree.create_binary_node()
+        value = 12
+
+        flag = binary_tree.tree_includes(root, value)
+        assert flag == True
+    
+    def test_tree_doesnot_include(self):
+        root = binary_tree.create_binary_node()
+        value = 120
+
+        flag = binary_tree.tree_includes(root, value)
+        assert flag == False
+
     
 if __name__ == '__main__':
     unittest.main()

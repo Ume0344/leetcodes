@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Any
 
 
 class Node:
@@ -136,7 +136,7 @@ def breadth_first_value(root: Node) -> List:
     breadth_first_value(root.right, values_array, i)
     '''
     values_array: List = []
-    
+
     if root is None:
         return values_array
 
@@ -151,3 +151,32 @@ def breadth_first_value(root: Node) -> List:
             queue.append(current.right)
     
     return values_array
+
+
+def tree_includes(root: Node, value: Any) -> bool:
+    """
+    Finds if tree has a particular value/data (through stack and DFS).
+
+    param root: Root of the binary tree.
+    param value: Value to be found 
+
+    return bool
+    """
+    flag = False 
+    if root is None:
+        return flag
+    
+    stack = [root]
+
+    while len(stack) > 0:
+        current = stack.pop()
+
+        if current.data == value:
+            flag = True 
+            break
+        if current.right:
+            stack.append(current.right)
+        if current.left:
+            stack.append(current.left)
+    
+    return flag
