@@ -22,18 +22,32 @@ class TestBinaryTree(unittest.TestCase):
 
         assert values == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-    def test_tree_includes(self):
+    def test_tree_includes_stack(self):
         root = binary_tree.create_binary_node()
         value = 12
 
-        flag = binary_tree.tree_includes(root, value)
+        flag = binary_tree.tree_includes_stack(root, value)
         assert flag == True
     
-    def test_tree_doesnot_include(self):
+    def test_tree_doesnot_include_stack(self):
         root = binary_tree.create_binary_node()
         value = 120
 
-        flag = binary_tree.tree_includes(root, value)
+        flag = binary_tree.tree_includes_stack(root, value)
+        assert flag == False
+    
+    def test_tree_includes_recursive(self):
+        root = binary_tree.create_binary_node()
+        value = 6
+
+        flag = binary_tree.tree_includes_recursive(root, value)
+        assert flag == True
+    
+    def test_tree_doesnot_include_recursive(self):
+        root = binary_tree.create_binary_node()
+        value = 61
+
+        flag = binary_tree.tree_includes_recursive(root, value)
         assert flag == False
 
     

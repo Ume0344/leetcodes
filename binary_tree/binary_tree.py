@@ -153,7 +153,7 @@ def breadth_first_value(root: Node) -> List:
     return values_array
 
 
-def tree_includes(root: Node, value: Any) -> bool:
+def tree_includes_stack(root: Node, value: Any) -> bool:
     """
     Finds if tree has a particular value/data (through stack and DFS).
 
@@ -170,7 +170,6 @@ def tree_includes(root: Node, value: Any) -> bool:
 
     while len(stack) > 0:
         current = stack.pop()
-
         if current.data == value:
             flag = True 
             break
@@ -180,3 +179,22 @@ def tree_includes(root: Node, value: Any) -> bool:
             stack.append(current.left)
     
     return flag
+
+
+def tree_includes_recursive(root: Node, value: Any) -> bool:
+    """
+    Finds if tree has a particular value/data (recursively).
+
+    param root: Root of the binary tree.
+    param value: Value to be found 
+
+    return bool
+    """
+    flag = False 
+    if root is None:
+        return flag
+
+    if root.data == value:
+        flag = True
+        return flag
+    return tree_includes_recursive(root.left, value) or tree_includes_recursive(root.right, value)
