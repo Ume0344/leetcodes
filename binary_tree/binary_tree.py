@@ -217,3 +217,31 @@ def tree_sum_stack(root: Node) -> int:
         if current.right:
             stack.append(current.right)
     return sum
+
+
+def tree_min_value(root: Node) -> int | float:
+    """
+           2
+          / \
+         3   1
+    Finds the minimum value in tree.
+    
+    param root: Root of the tree
+    returns int | infinity: minimun value or infinity if root is None.
+    """
+    if root is None:
+        return float('inf')
+
+    min = root.data
+    stack = [root]
+
+    while len(stack) > 0:
+        current = stack.pop()
+        if current.data < min:
+            min = current.data
+        if current.left:
+            stack.append(current.left)
+        if current.right:
+            stack.append(current.right)
+    
+    return min

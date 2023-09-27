@@ -62,8 +62,18 @@ class TestBinaryTree(unittest.TestCase):
         sum = binary_tree.tree_sum_stack(root)
         assert sum == 78
 
-    
+    def test_tree_min_value(self):
+        root = binary_tree.create_binary_node()
 
+        min = binary_tree.tree_min_value(root)
+        assert min == 1
     
+    def test_tree_min_value_root_null(self):
+        root = None
+
+        min = binary_tree.tree_min_value(root)
+        assert min == float('inf')
+
+
 if __name__ == '__main__':
     unittest.main()
