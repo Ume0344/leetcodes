@@ -50,6 +50,20 @@ class TestBinaryTree(unittest.TestCase):
         flag = binary_tree.tree_includes_recursive(root, value)
         assert flag == False
 
+    def test_tree_sum_recursion(self):
+        root = binary_tree.create_binary_node()
+
+        sum = binary_tree.tree_sum_recursion(root)
+        assert sum == 78
+
+    def test_tree_sum_stack(self):
+        root = binary_tree.create_binary_node()
+
+        sum = binary_tree.tree_sum_stack(root)
+        assert sum == 78
+
+    
+
     
 if __name__ == '__main__':
     unittest.main()

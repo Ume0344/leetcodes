@@ -198,3 +198,22 @@ def tree_includes_recursive(root: Node, value: Any) -> bool:
         flag = True
         return flag
     return tree_includes_recursive(root.left, value) or tree_includes_recursive(root.right, value)
+
+
+def tree_sum_recursion(root: Node) -> int:
+    if root is None:
+        return 0
+    return root.data + tree_sum_recursion(root.left) + tree_sum_recursion(root.right)
+
+    
+def tree_sum_stack(root: Node) -> int:
+    sum = 0
+    stack = [root]
+    while len(stack) > 0:
+        current = stack.pop()
+        sum += current.data
+        if current.left:
+            stack.append(current.left)
+        if current.right:
+            stack.append(current.right)
+    return sum
