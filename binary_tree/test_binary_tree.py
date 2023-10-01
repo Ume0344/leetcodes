@@ -73,6 +73,12 @@ class TestBinaryTree(unittest.TestCase):
 
         min = binary_tree.tree_min_value(root)
         assert min == float('inf')
+    
+    def test_tree_max_path_value(self):
+        root = binary_tree.create_binary_node()
+
+        sum = binary_tree.tree_max_path_value(root)
+        assert sum == 27
 
 
 if __name__ == '__main__':

@@ -40,9 +40,12 @@ def create_binary_node() -> Node:
              a
            /   \
           b     c
-        /   \    \
-       d     e    f
-
+        /   \   / \
+       d     e  f  g
+      /       \ /   \
+     h         i, j  k
+    /
+    l
     """
 
     return a
@@ -245,3 +248,18 @@ def tree_min_value(root: Node) -> int | float:
             stack.append(current.right)
     
     return min
+
+
+def tree_max_path_value(root: Node) -> int:
+    """
+    Find max path sum in a tree.
+    param root: Root of tree
+    return: The max sum
+    """
+    if root is None:
+        return 0
+    if root.left is None and root.right is None:
+        return root.data
+    
+    return root.data + max(tree_max_path_value(root.left), tree_max_path_value(root.right))
+    
