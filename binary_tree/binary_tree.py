@@ -262,4 +262,18 @@ def tree_max_path_value(root: Node) -> int:
         return root.data
     
     return root.data + max(tree_max_path_value(root.left), tree_max_path_value(root.right))
+
+
+def tree_max_depth(root: Node):
+    """
+    Find the max depth of a tree.
+    param root: Root of tree
+    return: Max depth of tree
+    """
+    if root is None:
+        return 0
+
+    if root.left is None and root.right is None:
+        return 1
     
+    return 1 + max(tree_max_depth(root.left), tree_max_depth(root.right))

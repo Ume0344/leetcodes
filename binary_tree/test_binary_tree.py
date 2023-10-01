@@ -79,6 +79,13 @@ class TestBinaryTree(unittest.TestCase):
 
         sum = binary_tree.tree_max_path_value(root)
         assert sum == 27
+    
+
+    def test_tree_max_depth(self):
+        root = binary_tree.create_binary_node()
+
+        depth = binary_tree.tree_max_depth(root)
+        assert depth == 5
 
 
 if __name__ == '__main__':
