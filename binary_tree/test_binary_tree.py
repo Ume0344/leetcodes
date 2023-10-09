@@ -87,6 +87,28 @@ class TestBinaryTree(unittest.TestCase):
         depth = binary_tree.tree_max_depth(root)
         assert depth == 5
 
+    
+    def test_invert_tree(self):
+        root = binary_tree.create_binary_node()
 
+        root = binary_tree.invert_tree(root)
+        values = binary_tree.breadth_first_value(root)
+
+        assert values == [1, 3, 2, 7, 6, 5, 4, 11, 10, 9, 8, 12]
+
+    def test_trees_are_identical(self):
+        root1 = binary_tree.create_binary_node()
+        root2 = binary_tree.create_binary_node()
+
+        flag = binary_tree.trees_are_identical(root1, root2)
+        assert flag == True
+
+    def test_trees_are_not_identical(self):
+        root1 = binary_tree.create_binary_node()
+        root2 = None
+
+        flag = binary_tree.trees_are_identical(root1, root2)
+        assert flag == False
+    
 if __name__ == '__main__':
     unittest.main()

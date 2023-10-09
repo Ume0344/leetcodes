@@ -277,3 +277,37 @@ def tree_max_depth(root: Node):
         return 1
     
     return 1 + max(tree_max_depth(root.left), tree_max_depth(root.right))
+
+def invert_tree(root: Node) -> Node:
+    """
+    Invert the tree.
+    param root: Root of tree
+    return: Inverted tree
+    """
+    if root is None:
+        return None
+    if root.left or root.right:
+        temp = root.left
+        root.left = root.right
+        root.right = temp
+    
+    invert_tree(root.left)
+    invert_tree(root.right)
+
+    return root
+
+def trees_are_identical(root1: Node, root2: Node) -> bool:
+    """
+    Check if two binary trees are identical.
+    param root1: Root of BT 1
+    param root2: Root of BT 2
+
+    return True/False
+    """
+    values1 = depth_first_value_stack(root1)
+    values2 = depth_first_value_stack(root2)
+
+    if values1 == values2:
+        return True
+    else:
+        return False
