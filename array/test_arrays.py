@@ -9,5 +9,13 @@ class TestArray(unittest.TestCase):
 
         assert grouped_list == [["eat","tea","ate"],["tan","nat"],["bat"]]
 
+    def test_topKFrequent(self):
+        a = Array()
+        nums = [1,1,1,2,2,3]
+        k = 2
+        top_k = a.topKFrequent(nums, k)
+
+        assert top_k == [1,2]
+
 if __name__ == '__main__':
     unittest.main()

@@ -14,3 +14,20 @@ class Array:
                 dic[temp[i]].append(strs[i])
         
         return list(dic.values())
+
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        l = len(nums)
+        dic = {}
+        lis = []
+
+        for i in range(l):
+            if nums[i] not in dic:
+                dic[nums[i]] = 1
+            else:
+                dic[nums[i]]+=1
+        # key takes the each element in dic.item() and pass to lambda function
+        sorted_dic = sorted(dic.items(), key=lambda x:x[1], reverse=True)
+        for i in range(k):
+            lis.append(sorted_dic[i][0])
+        
+        return lis
