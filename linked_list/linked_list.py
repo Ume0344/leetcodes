@@ -117,17 +117,17 @@ def merge_two_linked_list(linkedlist1: Node, linkedlist2: Node) -> Node:
     while linkedlist1 and linkedlist2:
         if linkedlist1.data <= linkedlist2.data:
             temp.next_node = linkedlist1
-            temp = temp.next_node
             linkedlist1 = linkedlist1.next_node
         else:
             temp.next_node = linkedlist2
-            temp = temp.next_node
             linkedlist2 = linkedlist2.next_node
 
-        if linkedlist1 is not None:
-            temp.next_node = linkedlist1
-        if linkedlist2 is not None:
-            temp.next_node = linkedlist2
+        temp = temp.next_node
+
+    if linkedlist1 is None:
+        temp.next_node = linkedlist2
+    if linkedlist2 is None:
+        temp.next_node = linkedlist1
 
     return dummy.next_node
 
