@@ -35,7 +35,6 @@ def create_binary_node() -> Node:
     f.left = j
     g.right = k
 
-
     """
              a
            /   \
@@ -50,6 +49,21 @@ def create_binary_node() -> Node:
 
     return a
 
+def create_sub_binary_node() -> Node:
+    """
+        c
+      /   \
+    f      g
+    
+    """
+    c = Node(3)
+    f = Node(6)
+    g = Node(7)
+
+    c.left = f
+    c.right = g
+
+    return c
 
 def print_tree(root: Node) -> None:
     print(root.data)
@@ -311,3 +325,15 @@ def trees_are_identical(root1: Node, root2: Node) -> bool:
         return True
     else:
         return False
+
+def trees_are_identical_recursion(root1: Node, root2: Node):
+    if root1 is None or root2 is None:
+        return (root1 == root2)
+    return (root1.data == root2.data) and trees_are_identical_recursion(root1.left, root2.left) and trees_are_identical_recursion(root1.right, root2.right)
+
+def isSubTree(root: Node, subRoot: Node):
+    if not root:
+        return False
+    if trees_are_identical_recursion(root, subRoot):
+        return True
+    return isSubTree(root.left, subRoot) or isSubTree(root.right, subRoot)

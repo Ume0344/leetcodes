@@ -110,5 +110,20 @@ class TestBinaryTree(unittest.TestCase):
         flag = binary_tree.trees_are_identical(root1, root2)
         assert flag == False
     
+    def test_trees_are_identical_recursion(self):
+        root1 = binary_tree.create_binary_node()
+        root2 = binary_tree.create_binary_node()
+
+        flag = binary_tree.trees_are_identical_recursion(root1, root2)
+        assert flag == True
+    
+    def test_trees_are_identical_recursion(self):
+        root1 = binary_tree.create_binary_node()
+        subRoot = binary_tree.create_sub_binary_node()
+
+        flag = binary_tree.isSubTree(root1, subRoot)
+        assert flag == False
+    
+    
 if __name__ == '__main__':
     unittest.main()
